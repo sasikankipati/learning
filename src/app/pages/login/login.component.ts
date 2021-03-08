@@ -6,6 +6,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { Router } from '@angular/router';
+import { TestsuiteService } from 'src/app/services/testsuite.service';
 
 @Component({
   selector: 'app-login',
@@ -17,7 +18,7 @@ export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   msg;
 
-  constructor(private fb: FormBuilder, private router: Router) {
+  constructor(private fb: FormBuilder, private router: Router,private testService: TestsuiteService) {
     this.loginForm = this.fb.group({
       email: ['', [Validators.required]],
       password: ['', [Validators.required]],
@@ -40,6 +41,23 @@ export class LoginComponent implements OnInit {
 
   onSubmit() {
     this.isLoading = false;
-    this.successLogin();
+    //alert("Here ..");
+    var body = {
+      name: this.loginForm.get('email').value,
+      password: this.loginForm.get('password').value
+    };
+    var responseTxt="";
+    this.testService.loginAuthentication(body).subscribe(data => {
+      if(data.response == "success"){
+        this.successLogin();  
+      }
+    });
+
+    console.log("###############");
+    //console.log(this.testService.loginAuthentication1(body));
+
+    console.log(responseTxt);
+    //this.successLogin();
+
   }
 }

@@ -27,6 +27,8 @@ import { GraphByCountryComponent } from './components/graph/graph-by-country/gra
 import { ResultsComponent } from './components/results/results.component';
 import { MenusComponent } from './components/menus/menus.component';
 
+
+
 @NgModule({
   declarations: [
     AppComponent,

@@ -11,4 +11,4 @@ RUN ng build --prod
 
 FROM nginx:1.17-alpine
 COPY nginx.config /etc/nginx/conf.d/default.conf
-COPY --from=builder /opt/web/dist/notes /usr/share/nginx/html
+COPY --from=builder /opt/web/dist/dashboard /usr/share/nginx/html

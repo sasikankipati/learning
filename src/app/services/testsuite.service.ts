@@ -12,7 +12,7 @@ export class TestsuiteService {
 
 
   loginAuthentication(body:any) : Observable<any> {
-    return this.http.post<any>('/authenticate', body);
+    return this.http.post<any>(':8090/authenticate', body);
   }
  
   /*loginAuthentication1(body){

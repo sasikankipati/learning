@@ -12,7 +12,7 @@ export class TestsuiteService {
 
 
   loginAuthentication(body:any) : Observable<any> {
-    return this.http.post<any>('/authenticate', body);
+    return this.http.post<any>('/api/authenticate', body);
   }
  
   /*loginAuthentication1(body){
